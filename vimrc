@@ -176,3 +176,9 @@ let g:path_to_search_app = '/usr/bin/ack-grep'
 "   \ if &buftype != "help" |
 "   \   tab sball |
 "   \ endif
+
+let g:ctrlp_prompt_mappings = {
+  \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
+  \ 'AcceptSelection("e")': ['<c-t>'],
+  \ }
+
