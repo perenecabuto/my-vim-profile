@@ -165,18 +165,13 @@ let NERDTreeWinSize=35
 map ,cc <plug>NERDCommenterToggle
 
 " PEP8
-let g:pep8_ignore = 'E501'
+" let g:pep8_ignore = ['E501', 'W391']
+let g:pep8_ignore = ['E501']
 
 " NERDTree ack
 let g:path_to_search_app = '/usr/bin/ack-grep'
 
-" Tabs
-":au BufAdd,BufNewFile * nested tab sball
-" :au BufNewFile,BufRead * nested
-"   \ if &buftype != "help" |
-"   \   tab sball |
-"   \ endif
-
+" CTRLP
 let g:ctrlp_prompt_mappings = {
   \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
   \ 'AcceptSelection("e")': ['<c-t>'],
