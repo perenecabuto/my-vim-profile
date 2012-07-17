@@ -177,3 +177,4 @@ let g:ctrlp_prompt_mappings = {
   \ 'AcceptSelection("e")': ['<c-t>'],
   \ }
 
+set wildignore+=*.so,*.swp,*.zip,*.pyc  " MacOSX/Linux
