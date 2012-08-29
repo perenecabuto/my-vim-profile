@@ -116,7 +116,8 @@ set fileencoding=utf-8
 set encoding=utf-8
 
 " visual
-colorscheme desert
+colorscheme railscasts
+" colorscheme desert
 " colorscheme ron
 " colorscheme elflord
 " colorscheme pablo
@@ -146,7 +147,7 @@ autocmd FileType ruby,eruby set completefunc=rubycomplete#Complete
 autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
 autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
-autocmd FileType ruby,eruby set smd shiftwidth=2 tabstop=2
+"autocmd FileType ruby,eruby set smd shiftwidth=2 tabstop=2
 
 "improve autocomplete menu color
 highlight Pmenu ctermbg=238 gui=bold
@@ -178,3 +179,29 @@ let g:ctrlp_prompt_mappings = {
   \ }
 
 set wildignore+=*.so,*.swp,*.zip,*.pyc  " MacOSX/Linux
+
+" Vundle
+set nocompatible               " be iMproved
+filetype off                   " required!
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required! 
+Bundle 'gmarik/vundle'
+
+" My Bundles here:
+"
+" original repos on github
+"Bundle 'tpope/vim-fugitive'
+"Bundle 'Lokaltog/vim-easymotion'
+"Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+" vim-scripts repos
+"Bundle 'L9'
+"Bundle 'FuzzyFinder'
+
+filetype plugin indent on
+
+" Powerline
+let g:Powerline_symbols = 'fancy'
