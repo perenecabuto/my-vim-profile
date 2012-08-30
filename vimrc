@@ -45,14 +45,6 @@ set confirm
 " Let VIM manage the term title
 set title
 
-" auto un-indent close brackets
-" set cindent
-"one tab only
-"set cinoptions = 4
-
-" Remap leader key
-" let mapleader = ,
-
 "
 " Statusline stuff
 "
@@ -60,13 +52,11 @@ set title
 set laststatus=2 "always titlebar
 
 " file, type, readonly, modified, col, line/totlines,percent
-set statusline=%1*\ %f\ %2*%y\ %4*%r\ %m%=%3*%(<%c,%l/%L>%3p%%%)\ 
-highlight StatusLine guifg=blue         guibg=white
-highlight StatusLine ctermfg=blue       ctermbg=white
+set statusline=%1*\ %f\ %2*%y\ %4*%r\ %m%=%3*%(<%c,%l/%L>%3p%%%)
 
 "
 " Toggles
-" 
+"
 
 " syntax coloring
 syn on
@@ -129,10 +119,12 @@ set cursorline cursorcolumn
 
 highlight CursorLine cterm=none ctermbg=black
 
+" Hightlight search
+set hlsearch
+
 " File extension
 " let did_load_filetypes = 0
 
-" imap <C-Space> <C-X><C-o>
 vmap <C-C> "+y
 
 " Font
@@ -147,20 +139,21 @@ autocmd FileType ruby,eruby set completefunc=rubycomplete#Complete
 autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
 autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
-"autocmd FileType ruby,eruby set smd shiftwidth=2 tabstop=2
+autocmd FileType ruby,eruby set smd shiftwidth=2 tabstop=2
 
 "improve autocomplete menu color
 highlight Pmenu ctermbg=238 gui=bold
 
 " NERDTree
-autocmd vimenter * if !argc() | NERDTree | endif
 let g:nerdtree_tabs_open_on_gui_startup = 0
-"let g:nerdtree_tabs_focus_on_files = 1
-autocmd VimEnter * map <C-E> <plug>NERDTreeTabsToggle<CR>
-autocmd VimEnter * nmap <F3> :NERDTreeToggle<CR>
-autocmd VimEnter * imap <F3> <Esc>:NERDTreeToggle<CR>a
+let g:nerdtree_tabs_focus_on_files = 1
 let NERDTreeQuitOnOpen=1
 let NERDTreeWinSize=35
+
+"autocmd VimEnter * if !argc() | NERDTree | endif
+autocmd VimEnter map <C-E> <plug>NERDTreeTabsToggle<CR>
+autocmd VimEnter nmap <F3> :NERDTreeToggle<CR>
+autocmd VimEnter imap <F3> <Esc>:NERDTreeToggle<CR>a
 
 " NERDCommenter
 map ,cc <plug>NERDCommenterToggle
@@ -180,28 +173,6 @@ let g:ctrlp_prompt_mappings = {
 
 set wildignore+=*.so,*.swp,*.zip,*.pyc  " MacOSX/Linux
 
-" Vundle
-set nocompatible               " be iMproved
-filetype off                   " required!
-
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-" let Vundle manage Vundle
-" required! 
-Bundle 'gmarik/vundle'
-
-" My Bundles here:
-"
-" original repos on github
-"Bundle 'tpope/vim-fugitive'
-"Bundle 'Lokaltog/vim-easymotion'
-"Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-" vim-scripts repos
-"Bundle 'L9'
-"Bundle 'FuzzyFinder'
-
-filetype plugin indent on
-
 " Powerline
 let g:Powerline_symbols = 'fancy'
+
