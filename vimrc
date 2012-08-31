@@ -107,6 +107,7 @@ set encoding=utf-8
 
 " visual
 colorscheme railscasts
+" colorscheme wombat
 " colorscheme desert
 " colorscheme ron
 " colorscheme elflord
@@ -124,11 +125,11 @@ set hlsearch
 
 " File extension
 " let did_load_filetypes = 0
-
 vmap <C-C> "+y
+vmap <C-V> "+p
 
 " Font
-set guifont=Liberation\ Mono\ 11
+set guifont=LiberationMono\ 12
 
 " Vim bundle
 call pathogen#infect()
@@ -175,4 +176,7 @@ set wildignore+=*.so,*.swp,*.zip,*.pyc  " MacOSX/Linux
 
 " Powerline
 let g:Powerline_symbols = 'fancy'
+
+" Pydoc
+let g:pydoc_cmd = 'python -m pydoc'
 
