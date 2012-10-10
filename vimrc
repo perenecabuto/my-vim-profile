@@ -154,10 +154,7 @@ let g:nerdtree_tabs_focus_on_files = 1
 let NERDTreeQuitOnOpen=1
 let NERDTreeWinSize=35
 
-"autocmd VimEnter * if !argc() | NERDTree | endif
-autocmd VimEnter map <C-E> <plug>NERDTreeTabsToggle<CR>
-autocmd VimEnter nmap <F3> :NERDTreeToggle<CR>
-autocmd VimEnter imap <F3> <Esc>:NERDTreeToggle<CR>a
+map <C-E> <plug>NERDTreeTabsToggle<CR>
 
 " NERDCommenter
 map ,cc <plug>NERDCommenterToggle
@@ -175,9 +172,7 @@ let g:ctrlp_prompt_mappings = {
   \ 'AcceptSelection("e")': ['<c-t>'],
   \ }
 
-set wildignore+=*/tmp/*,*.so,*.swp,*.pyc
-let g:ctrlp_user_command = 'find %s -type f'
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_user_command = 'find %s -type f ! -regex ".*.git/.*" | grep -v "\(pyc\|swp\)$"'
 
 " Powerline
 "let g:Powerline_symbols = 'fancy'
