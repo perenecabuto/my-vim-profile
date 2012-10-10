@@ -22,6 +22,7 @@ set backspace=indent,eol,start
 set textwidth=0
 set shortmess=at
 set whichwrap=<,>,h,l matchtime=6
+
 " tabstops
 set smd shiftwidth=4 tabstop=4
 
@@ -86,19 +87,18 @@ nmap <C-N> :tabnew <CR>
 " open file in new tab
 nmap <C-O> :browse tabnew <CR>
 
-"For all files, start at last edited position
+" For all files, start at last edited position
 autocmd BufReadPost *
     \ if line("'\"") > 0 && line("'\"") <= line("$") |
     \ exe "normal g`\"" |
     \ endif
 
 " Hide menu bar
-" set guioptions-=T
+set guioptions-=T
 set guioptions-=m
 
 " Tabs
 set expandtab
-
 set complete-=k complete+=k
 
 set fileencodings=utf-8,ucs-bom,latin1,default
@@ -106,9 +106,9 @@ set fileencoding=utf-8
 set encoding=utf-8
 
 " visual
-colorscheme railscasts
+" colorscheme railscasts
 " colorscheme wombat
-" colorscheme desert
+colorscheme desert
 " colorscheme ron
 " colorscheme elflord
 " colorscheme pablo
@@ -135,12 +135,15 @@ set guifont=LiberationMono\ 12
 call pathogen#infect()
 
 " ruby
-autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
-autocmd FileType ruby,eruby set completefunc=rubycomplete#Complete
-autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
-autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
-autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
-autocmd FileType ruby,eruby set smd shiftwidth=2 tabstop=2
+" autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
+" autocmd FileType ruby,eruby set completefunc=rubycomplete#Complete
+" autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+" autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+" autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+" autocmd FileType ruby,eruby set smd shiftwidth=2 tabstop=2
+
+" Migrations as sql
+autocmd BufRead,BufNewFile *.migration setfiletype sql
 
 "improve autocomplete menu color
 highlight Pmenu ctermbg=238 gui=bold
@@ -161,10 +164,10 @@ map ,cc <plug>NERDCommenterToggle
 
 " PEP8
 " let g:pep8_ignore = ['E501', 'W391']
-let g:pep8_ignore = 'E501'
+let g:pep8_ignore = 'E501,W391'
 
 " NERDTree ack
-let g:path_to_search_app = '/usr/bin/ack-grep'
+"let g:path_to_search_app = '/usr/bin/ack-grep'
 
 " CTRLP
 let g:ctrlp_prompt_mappings = {
@@ -172,10 +175,12 @@ let g:ctrlp_prompt_mappings = {
   \ 'AcceptSelection("e")': ['<c-t>'],
   \ }
 
-set wildignore+=*.so,*.swp,*.zip,*.pyc  " MacOSX/Linux
+set wildignore+=*/tmp/*,*.so,*.swp,*.pyc
+let g:ctrlp_user_command = 'find %s -type f'
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
 " Powerline
-let g:Powerline_symbols = 'fancy'
+"let g:Powerline_symbols = 'fancy'
 
 " Pydoc
 let g:pydoc_cmd = 'python -m pydoc'
