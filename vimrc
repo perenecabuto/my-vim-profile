@@ -106,13 +106,12 @@ set fileencoding=utf-8
 set encoding=utf-8
 
 " visual
-colorscheme railscasts
-" colorscheme desert
+colorscheme desert
+" colorscheme railscasts
 " colorscheme ron
 " colorscheme elflord
 " colorscheme pablo
 " colorscheme slate
-" colorscheme delek
 
 " Crux cursor
 set cursorline cursorcolumn
@@ -146,7 +145,7 @@ highlight Pmenu ctermbg=238 gui=bold
 
 " NERDTree
 let g:nerdtree_tabs_open_on_gui_startup = 0
-let g:nerdtree_tabs_focus_on_files = 1
+let g:nerdtree_tabs_focus_on_files = 0
 let NERDTreeQuitOnOpen=1
 let NERDTreeWinSize=35
 
@@ -160,10 +159,10 @@ map ,cc <plug>NERDCommenterToggle
 
 " PEP8
 " let g:pep8_ignore = ['E501', 'W391']
-let g:pep8_ignore = 'E501'
+let g:pep8_ignore = 'E501,W391'
 
 " NERDTree ack
-let g:path_to_search_app = '/usr/bin/ack-grep'
+"let g:path_to_search_app = '/usr/bin/ack-grep'
 
 " CTRLP
 let g:ctrlp_prompt_mappings = {
@@ -174,5 +173,5 @@ let g:ctrlp_prompt_mappings = {
 set wildignore+=*.so,*.swp,*.zip,*.pyc  " MacOSX/Linux
 
 " Powerline
-let g:Powerline_symbols = 'fancy'
+"let g:Powerline_symbols = 'fancy'
 
