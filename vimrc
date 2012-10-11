@@ -22,6 +22,7 @@ set backspace=indent,eol,start
 set textwidth=0
 set shortmess=at
 set whichwrap=<,>,h,l matchtime=6
+
 " tabstops
 set smd shiftwidth=4 tabstop=4
 
@@ -86,19 +87,18 @@ nmap <C-N> :tabnew <CR>
 " open file in new tab
 nmap <C-O> :browse tabnew <CR>
 
-"For all files, start at last edited position
+" For all files, start at last edited position
 autocmd BufReadPost *
     \ if line("'\"") > 0 && line("'\"") <= line("$") |
     \ exe "normal g`\"" |
     \ endif
 
 " Hide menu bar
-" set guioptions-=T
+set guioptions-=T
 set guioptions-=m
 
 " Tabs
 set expandtab
-
 set complete-=k complete+=k
 
 set fileencodings=utf-8,ucs-bom,latin1,default
@@ -108,6 +108,8 @@ set encoding=utf-8
 " visual
 colorscheme desert
 " colorscheme railscasts
+" colorscheme railscasts
+" colorscheme wombat
 " colorscheme ron
 " colorscheme elflord
 " colorscheme pablo
@@ -123,22 +125,25 @@ set hlsearch
 
 " File extension
 " let did_load_filetypes = 0
-
 vmap <C-C> "+y
+vmap <C-V> "+p
 
 " Font
-set guifont=Liberation\ Mono\ 11
+set guifont=LiberationMono\ 12
 
 " Vim bundle
 call pathogen#infect()
 
 " ruby
-autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
-autocmd FileType ruby,eruby set completefunc=rubycomplete#Complete
-autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
-autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
-autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
-autocmd FileType ruby,eruby set smd shiftwidth=2 tabstop=2
+" autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
+" autocmd FileType ruby,eruby set completefunc=rubycomplete#Complete
+" autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+" autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+" autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+" autocmd FileType ruby,eruby set smd shiftwidth=2 tabstop=2
+
+" Migrations as sql
+autocmd BufRead,BufNewFile *.migration setfiletype sql
 
 "improve autocomplete menu color
 highlight Pmenu ctermbg=238 gui=bold
@@ -149,10 +154,7 @@ let g:nerdtree_tabs_focus_on_files = 0
 let NERDTreeQuitOnOpen=1
 let NERDTreeWinSize=35
 
-"autocmd VimEnter * if !argc() | NERDTree | endif
-autocmd VimEnter map <C-E> <plug>NERDTreeTabsToggle<CR>
-autocmd VimEnter nmap <F3> :NERDTreeToggle<CR>
-autocmd VimEnter imap <F3> <Esc>:NERDTreeToggle<CR>a
+map <C-E> <plug>NERDTreeTabsToggle<CR>
 
 " NERDCommenter
 map ,cc <plug>NERDCommenterToggle
@@ -170,8 +172,11 @@ let g:ctrlp_prompt_mappings = {
   \ 'AcceptSelection("e")': ['<c-t>'],
   \ }
 
-set wildignore+=*.so,*.swp,*.zip,*.pyc  " MacOSX/Linux
+let g:ctrlp_user_command = 'find %s -type f ! -regex ".*.git/.*" | grep -v "\(pyc\|swp\)$"'
 
 " Powerline
 "let g:Powerline_symbols = 'fancy'
+
+" Pydoc
+let g:pydoc_cmd = 'python -m pydoc'
 
