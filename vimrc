@@ -33,7 +33,7 @@ set sidescroll=5
 set listchars+=precedes:<,extends:>
 
 " show tabs/spaces as chars
-set list listchars=tab:»·,trail:·
+set list listchars=tab:Â»Â·,trail:Â·
 
 set viminfo=%,'50,\"100,:100,n~/.viminfo
 
@@ -160,8 +160,7 @@ map <C-E> <plug>NERDTreeTabsToggle<CR>
 map ,cc <plug>NERDCommenterToggle
 
 " PEP8
-" let g:pep8_ignore = ['E501', 'W391']
-let g:pep8_ignore = 'E501,W391'
+let g:pep8_ignore = 'E501,W391,E127'
 
 " NERDTree ack
 "let g:path_to_search_app = '/usr/bin/ack-grep'
@@ -179,4 +178,14 @@ let g:ctrlp_user_command = 'find %s -type f ! -regex ".*.git/.*" | grep -v "\(py
 
 " Pydoc
 let g:pydoc_cmd = 'python -m pydoc'
+
+" Python Jedi
+let g:jedi#popup_on_dot = 0
+let g:jedi#auto_initialization = 0
+
+let g:jedi_installed = system("python -c 'import jedi' 2>/dev/null; echo $?")
+
+if g:jedi_installed == 0
+    let g:jedi#auto_initialization = 1
+endif
 
