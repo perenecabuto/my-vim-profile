@@ -149,10 +149,12 @@ autocmd BufRead,BufNewFile *.migration setfiletype sql
 highlight Pmenu ctermbg=238 gui=bold
 
 " NERDTree
-let g:nerdtree_tabs_open_on_gui_startup = 0
-let g:nerdtree_tabs_focus_on_files = 0
-let NERDTreeQuitOnOpen=1
+let g:nerdtree_tabs_open_on_gui_startup = 1
+let g:nerdtree_tabs_focus_on_files = 1
+let g:NERDTreeWinPos = "right"
+"let NERDTreeQuitOnOpen=1
 let NERDTreeWinSize=35
+let NERDTreeIgnore = ['\.pyc$']
 
 map <C-E> <plug>NERDTreeTabsToggle<CR>
 
