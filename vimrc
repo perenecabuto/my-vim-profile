@@ -87,6 +87,12 @@ nmap <C-N> :tabnew <CR>
 " open file in new tab
 nmap <C-O> :browse tabnew <CR>
 
+" Switch through tab buffers
+nmap <silent> <A-Up> :wincmd k<CR>
+nmap <silent> <A-Down> :wincmd j<CR>
+nmap <silent> <A-Left> :wincmd h<CR>
+nmap <silent> <A-Right> :wincmd l<CR>
+
 " For all files, start at last edited position
 autocmd BufReadPost *
     \ if line("'\"") > 0 && line("'\"") <= line("$") |
@@ -94,8 +100,7 @@ autocmd BufReadPost *
     \ endif
 
 " Hide menu bar
-set guioptions-=T
-set guioptions-=m
+set guioptions-=T guioptions-=m
 
 " Tabs
 set expandtab
@@ -106,9 +111,8 @@ set fileencoding=utf-8
 set encoding=utf-8
 
 " visual
-colorscheme desert
-" colorscheme railscasts
-" colorscheme railscasts
+" colorscheme desert
+colorscheme railscasts
 " colorscheme wombat
 " colorscheme ron
 " colorscheme elflord
@@ -116,7 +120,8 @@ colorscheme desert
 " colorscheme slate
 
 " Crux cursor
-set cursorline cursorcolumn
+set cursorline
+"set cursorcolumn
 
 highlight CursorLine cterm=none ctermbg=black
 
@@ -135,37 +140,36 @@ set guifont=LiberationMono\ 12
 call pathogen#infect()
 
 " ruby
-" autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
-" autocmd FileType ruby,eruby set completefunc=rubycomplete#Complete
-" autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
-" autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
-" autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
-" autocmd FileType ruby,eruby set smd shiftwidth=2 tabstop=2
+autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
+autocmd FileType ruby,eruby set completefunc=rubycomplete#Complete
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+autocmd FileType ruby,eruby set smd shiftwidth=2 tabstop=2
 
 " Migrations as sql
-autocmd BufRead,BufNewFile *.migration setfiletype sql
+autocmd BufRead,BufNewFile *.migration set filetype=sql
+
+" Arduino Code
+autocmd BufRead,BufNewFile *.ino set filetype=c
 
 "improve autocomplete menu color
 highlight Pmenu ctermbg=238 gui=bold
 
 " NERDTree
-let g:nerdtree_tabs_open_on_gui_startup = 1
-let g:nerdtree_tabs_focus_on_files = 1
 let g:NERDTreeWinPos = "right"
-"let NERDTreeQuitOnOpen=1
+let NERDTreeQuitOnOpen=1
 let NERDTreeWinSize=35
 let NERDTreeIgnore = ['\.pyc$']
 
-map <C-E> <plug>NERDTreeTabsToggle<CR>
+map <C-F> :NERDTreeFind<CR>
+map <C-E> :NERDTreeToggle<CR>
 
 " NERDCommenter
 map ,cc <plug>NERDCommenterToggle
 
 " PEP8
 let g:pep8_ignore = 'E501,W391,E127'
-
-" NERDTree ack
-"let g:path_to_search_app = '/usr/bin/ack-grep'
 
 " CTRLP
 let g:ctrlp_prompt_mappings = {
@@ -180,14 +184,4 @@ let g:ctrlp_user_command = 'find %s -type f ! -regex ".*.git/.*" | grep -v "\(py
 
 " Pydoc
 let g:pydoc_cmd = 'python -m pydoc'
-
-" Python Jedi
-let g:jedi#popup_on_dot = 0
-let g:jedi#auto_initialization = 0
-
-let g:jedi_installed = system("python -c 'import jedi' 2>/dev/null; echo $?")
-
-if g:jedi_installed == 0
-    let g:jedi#auto_initialization = 1
-endif
 
