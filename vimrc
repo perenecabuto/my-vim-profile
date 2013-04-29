@@ -106,8 +106,8 @@ set fileencoding=utf-8
 set encoding=utf-8
 
 " visual
-colorscheme desert
-" colorscheme railscasts
+" colorscheme desert
+colorscheme railscasts
 " colorscheme railscasts
 " colorscheme wombat
 " colorscheme ron
@@ -116,7 +116,7 @@ colorscheme desert
 " colorscheme slate
 
 " Crux cursor
-set cursorline cursorcolumn
+set cursorline nocursorcolumn
 
 highlight CursorLine cterm=none ctermbg=black
 
