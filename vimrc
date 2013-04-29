@@ -153,6 +153,9 @@ autocmd BufRead,BufNewFile *.migration set filetype=sql
 " Arduino Code
 autocmd BufRead,BufNewFile *.ino set filetype=c
 
+" Markdown format
+autocmd BufRead,BufNewFile *.md set filetype=Markdown
+
 "improve autocomplete menu color
 highlight Pmenu ctermbg=238 gui=bold
 
