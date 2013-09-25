@@ -120,8 +120,8 @@ colorscheme railscasts
 " colorscheme slate
 
 " Crux cursor
-set cursorline
 "set cursorcolumn
+set cursorline
 
 highlight CursorLine cterm=none ctermbg=black
 
@@ -134,7 +134,8 @@ vmap <C-C> "+y
 vmap <C-V> "+p
 
 " Font
-set guifont=LiberationMono\ 12
+"set guifont=LiberationMono\ 12
+set guifont=monoOne\ 12
 
 " Vim bundle
 call pathogen#infect()
@@ -154,7 +155,7 @@ autocmd BufRead,BufNewFile *.migration set filetype=sql
 autocmd BufRead,BufNewFile *.ino set filetype=c
 
 " Markdown format
-autocmd BufRead,BufNewFile *.md set filetype=Markdown
+autocmd BufRead,BufNewFile *.md set filetype=markdown
 
 "improve autocomplete menu color
 highlight Pmenu ctermbg=238 gui=bold
