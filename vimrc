@@ -135,7 +135,13 @@ vmap <C-V> "+p
 
 " Font
 "set guifont=LiberationMono\ 12
-set guifont=monoOne\ 12
+if has("x11")
+    set guifont=monoOne\ 12
+else
+    set guifont=monoOne:h12
+endif
+
+set antialias
 
 " Vim bundle
 call pathogen#infect()
