@@ -50,7 +50,7 @@ set title
 " Statusline stuff
 "
 
-set laststatus=2 "always titlebar
+set laststatus=2  "always titlebar
 
 " file, type, readonly, modified, col, line/totlines,percent
 set statusline=%1*\ %f\ %2*%y\ %4*%r\ %m%=%3*%(<%c,%l/%L>%3p%%%)
@@ -138,7 +138,7 @@ vmap <C-V> "+p
 if has("x11")
     set guifont=monoOne\ 12
 else
-    set guifont=monoOne:h12
+    set guifont=monoOne:h13
 endif
 
 set antialias
@@ -147,11 +147,6 @@ set antialias
 call pathogen#infect()
 
 " ruby
-autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
-autocmd FileType ruby,eruby set completefunc=rubycomplete#Complete
-autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
-autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
-autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 autocmd FileType ruby,eruby set smd shiftwidth=2 tabstop=2
 
 " Migrations as sql
