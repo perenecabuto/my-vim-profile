@@ -136,9 +136,9 @@ vmap <C-V> "+p
 " Font
 "set guifont=LiberationMono\ 12
 if has("x11")
-    set guifont=monoOne\ 12
+    set guifont=monoOne\ for\ Powerline\ 12
 else
-    set guifont=monoOne:h12
+    set guifont=monoOne\ for\ Powerline:h12
 endif
 
 set antialias
@@ -152,7 +152,7 @@ autocmd FileType ruby,eruby set completefunc=rubycomplete#Complete
 autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
 autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
-autocmd FileType ruby,eruby set smd shiftwidth=2 tabstop=2
+"autocmd FileType ruby,eruby set smd shiftwidth=2 tabstop=2
 
 " Migrations as sql
 autocmd BufRead,BufNewFile *.migration set filetype=sql
@@ -174,6 +174,8 @@ let NERDTreeIgnore = ['\.pyc$']
 
 map <C-F> :NERDTreeFind<CR>
 map <C-E> :NERDTreeToggle<CR>
+map <M-{> :tabprevious<CR>
+map <M-}> :tabnext<CR>
 
 " NERDCommenter
 map ,cc <plug>NERDCommenterToggle
@@ -183,15 +185,18 @@ let g:pep8_ignore = 'E501,W391,E127'
 
 " CTRLP
 let g:ctrlp_prompt_mappings = {
-  \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
-  \ 'AcceptSelection("e")': ['<c-t>'],
-  \ }
+    \'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
+    \'AcceptSelection("e")': ['<c-t>'],
+    \}
 
 let g:ctrlp_user_command = 'find %s -type f ! -regex ".*.git/.*" | grep -v "\(pyc\|swp\)$"'
 
 " Powerline
-"let g:Powerline_symbols = 'fancy'
+let g:Powerline_symbols = 'fancy'
 
 " Pydoc
 let g:pydoc_cmd = 'python -m pydoc'
 
+"set t_Co=256
+"set t_AB="^[[48;5;%dm"
+"set t_AF="^[[38;5;%dm"
