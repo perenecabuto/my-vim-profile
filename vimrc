@@ -50,7 +50,7 @@ set title
 " Statusline stuff
 "
 
-set laststatus=2 "always titlebar
+set laststatus=2  "always titlebar
 
 " file, type, readonly, modified, col, line/totlines,percent
 set statusline=%1*\ %f\ %2*%y\ %4*%r\ %m%=%3*%(<%c,%l/%L>%3p%%%)
@@ -138,7 +138,7 @@ vmap <C-V> "+p
 if has("x11")
     set guifont=monoOne\ for\ Powerline\ 12
 else
-    set guifont=monoOne\ for\ Powerline:h12
+    set guifont=monoOne\ for\ Powerline:h13
 endif
 
 set antialias
