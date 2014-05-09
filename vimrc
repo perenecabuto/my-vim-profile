@@ -147,7 +147,7 @@ set antialias
 call pathogen#infect()
 
 " ruby
-"autocmd FileType ruby,eruby set smd shiftwidth=2 tabstop=2
+autocmd FileType ruby,eruby set smd shiftwidth=2 tabstop=2
 
 " Migrations as sql
 autocmd BufRead,BufNewFile *.migration set filetype=sql
@@ -195,3 +195,6 @@ let g:pydoc_cmd = 'python -m pydoc'
 "set t_Co=256
 "set t_AB="^[[48;5;%dm"
 "set t_AF="^[[38;5;%dm"
+
+" Execute Python
+map <F5> :!python %<CR>
