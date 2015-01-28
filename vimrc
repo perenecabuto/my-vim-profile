@@ -16,7 +16,7 @@ set autoindent showmatch ignorecase smartcase
 set noeb noet nosol nowrap
 
 " backspace over everything
-set backspace=indent,eol,start
+set backspace=indent,noeol,start
 
 " no wordwrap
 set textwidth=0
@@ -232,3 +232,6 @@ let g:tagbar_type_go = {
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'
 \ }
+
+" format with goimports instead of gofmt
+let g:go_fmt_command = "goimports"
