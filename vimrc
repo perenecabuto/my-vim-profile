@@ -15,9 +15,6 @@ set autoindent showmatch ignorecase smartcase
 " turn these OFF:
 set noeb noet nosol nowrap
 
-" backspace over everything
-set backspace=indent,noeol,start
-
 " no wordwrap
 set textwidth=0
 set shortmess=at
