@@ -230,6 +230,3 @@ let g:tagbar_type_go = {
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'
 \ }
-
-" format with goimports instead of gofmt
-let g:go_fmt_command = "goimports"
