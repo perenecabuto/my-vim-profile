@@ -230,3 +230,8 @@ let g:tagbar_type_go = {
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'
 \ }
+
+" limit columns
+set colorcolumn=120
+set synmaxcol=120
+
