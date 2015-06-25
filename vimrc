@@ -15,6 +15,9 @@ set autoindent showmatch ignorecase smartcase
 " turn these OFF:
 set noeb noet nosol nowrap
 
+" backspace over everything
+set backspace=indent,eol,start
+
 " no wordwrap
 set textwidth=0
 set shortmess=at
@@ -116,8 +119,9 @@ colorscheme railscasts
 " colorscheme pablo
 " colorscheme slate
 
-" Crux cursor
-"set cursorcolumn
+" cursor and columns
+set colorcolumn=120
+set synmaxcol=120
 set cursorline
 
 highlight CursorLine cterm=none ctermbg=black
@@ -140,11 +144,15 @@ endif
 
 set antialias
 
+
 " Vim bundle
 call pathogen#infect()
 
+" Puppet
+autocmd BufRead,BufNewFile *.pp set filetype=ruby
+
 " ruby
-autocmd FileType ruby,eruby set smd shiftwidth=2 tabstop=2
+autocmd FileType ruby,eruby setlocal smd shiftwidth=2 tabstop=2
 
 " Migrations as sql
 autocmd BufRead,BufNewFile *.migration set filetype=sql
@@ -154,6 +162,11 @@ autocmd BufRead,BufNewFile *.ino set filetype=c
 
 " Markdown format
 autocmd BufRead,BufNewFile *.md set filetype=markdown
+
+" Pig syntax
+augroup filetypedetect
+    au BufNewFile,BufRead *.pig set filetype=pig syntax=pig
+augroup END
 
 "improve autocomplete menu color
 highlight Pmenu ctermbg=238 gui=bold
@@ -166,6 +179,7 @@ let NERDTreeIgnore = ['\.pyc$']
 
 map <C-F> :NERDTreeFind<CR>
 map <C-E> :NERDTreeToggle<CR>
+
 map <M-{> :tabprevious<CR>
 map <M-}> :tabnext<CR>
 
@@ -175,12 +189,13 @@ map ,cc <plug>NERDCommenterToggle
 " PEP8
 let g:flake8_max_line_length = 120
 let g:flake8_ignore = "E501,W293,E127"
+let g:pep8_ignore = 'E501,W391,E127'
 
 " CTRLP
 let g:ctrlp_prompt_mappings = {
-    \'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
-    \'AcceptSelection("e")': ['<c-t>'],
-    \}
+  \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
+  \ 'AcceptSelection("e")': ['<c-t>'],
+  \ }
 
 let g:ctrlp_user_command = 'find %s -type f ! -regex ".*.git/.*" | grep -v "\(pyc\|swp\)$"'
 
@@ -190,15 +205,12 @@ let g:Powerline_symbols = 'fancy'
 " Pydoc
 let g:pydoc_cmd = 'python -m pydoc'
 
-"set t_Co=256
-"set t_AB="^[[48;5;%dm"
-"set t_AF="^[[38;5;%dm"
+let g:multi_cursor_use_default_mapping=0
 
-" Execute Python
-map <F5> :!python %<CR>
-
-set backupdir=/tmp
-set directory=/tmp
+let g:multi_cursor_start_key='<C-d>'
+let g:multi_cursor_start_word_key='g<C-d>'
+let g:multi_cursor_next_key='<C-d>'
+let g:multi_cursor_quit_key='<Esc>'
 
 " Vim Go
 let g:go_fmt_command = "goimports"
@@ -230,8 +242,4 @@ let g:tagbar_type_go = {
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'
 \ }
-
-" limit columns
-set colorcolumn=120
-set synmaxcol=120
 
