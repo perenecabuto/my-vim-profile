@@ -187,9 +187,10 @@ map <M-}> :tabnext<CR>
 map ,cc <plug>NERDCommenterToggle
 
 " PEP8
-let g:flake8_max_line_length = 120
-let g:flake8_ignore = "E501,W293,E127"
-let g:pep8_ignore = 'E501,W391,E127'
+autocmd BufWritePost *.py call Flake8()
+" [flake8]
+" ignore = E501,W293,E127
+" max-line-length = 120
 
 " CTRLP
 let g:ctrlp_prompt_mappings = {
