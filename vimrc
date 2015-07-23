@@ -121,7 +121,7 @@ colorscheme railscasts
 
 " cursor and columns
 set colorcolumn=120
-set synmaxcol=120
+set synmaxcol=140
 set cursorline
 
 highlight CursorLine cterm=none ctermbg=black
@@ -206,8 +206,8 @@ let g:Powerline_symbols = 'fancy'
 " Pydoc
 let g:pydoc_cmd = 'python -m pydoc'
 
+" Multi cursor
 let g:multi_cursor_use_default_mapping=0
-
 let g:multi_cursor_start_key='<C-d>'
 let g:multi_cursor_start_word_key='g<C-d>'
 let g:multi_cursor_next_key='<C-d>'
@@ -243,4 +243,9 @@ let g:tagbar_type_go = {
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'
 \ }
+
+
+" GO Def
+let g:godef_split=2
+let g:godef_same_file_in_same_window=1
 

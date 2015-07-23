@@ -6,7 +6,7 @@
 	url = https://github.com/kien/ctrlp.vim.git
 [submodule "bundle/YouCompleteMe"]
 	path = bundle/YouCompleteMe
-	url = https://github.com/Valloric/YouCompleteMe.git
+	url = git@github.com:Valloric/YouCompleteMe.git
 [submodule "bundle/vim-go"]
 	path = bundle/vim-go
 	url = https://github.com/fatih/vim-go.git
@@ -64,3 +64,6 @@
 [submodule "bundle/vim-multiple-cursors"]
 	path = bundle/vim-multiple-cursors
 	url = git@github.com:terryma/vim-multiple-cursors.git
+[submodule "bundle/vim-godef"]
+	path = bundle/vim-godef
+	url = git@github.com:dgryski/vim-godef.git
