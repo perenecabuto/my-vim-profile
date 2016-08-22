@@ -3,13 +3,13 @@
 "
 
 " vi compatibility mode off
-set nocp
+set nocompatible
 
 " use X clipboard, instead of own registers
 " set clipboard=unnamed
 
 " turn these ON:
-set ek hidden ruler sc vb wmnu paste number
+set ek hidden ruler sc vb wmnu number
 set autoindent showmatch ignorecase smartcase
 
 " turn these OFF:
@@ -102,10 +102,7 @@ autocmd BufReadPost *
 " Hide menu bar
 set guioptions-=T guioptions-=m
 
-" Tabs
-set expandtab
-set complete-=k complete+=k
-
+" encoding
 set fileencodings=utf-8,ucs-bom,latin1,default
 set fileencoding=utf-8
 set encoding=utf-8
@@ -244,3 +241,12 @@ let g:tagbar_type_go = {
     \ 'ctagsargs' : '-sort -silent'
 \ }
 
+" YCM
+let g:ycm_key_list_select_completion = ['<Down>']
+let g:ycm_key_list_previous_completion = ['<Up>']
+
+" Tabs
+set expandtab
+set complete-=k complete+=k
+
+" vim: set noet ai
