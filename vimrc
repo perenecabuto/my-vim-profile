@@ -213,6 +213,8 @@ let g:multi_cursor_quit_key='<Esc>'
 " Vim Go
 let g:go_fmt_command = "goimports"
 
+let g:godef_split=2
+
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
     \ 'kinds'     : [
@@ -250,3 +252,4 @@ set expandtab
 set complete-=k complete+=k
 
 " vim: set noet ai
+"
